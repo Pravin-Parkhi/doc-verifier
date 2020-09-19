@@ -4,11 +4,11 @@ import './input-field.component.scss'
 
 export default function InputField(props) {
   
-  const { inputValue, handleInputCallback } = props
+  const { type, inputValue, handleInputCallback } = props
 
   return (
     <input
-      type='text'
+      type={type}
       value={inputValue}
       className='input-field'
       onChange={handleInputCallback}
