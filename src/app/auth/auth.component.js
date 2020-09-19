@@ -34,7 +34,7 @@ export default function Auth(props) {
         <p className='helper-text'>Proceed with your email address</p>
         
         <InputField
-          type='number'
+          type='text'
           inputValue={email}
           handleInputCallback={handleInputChange}
         />
