@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .checkbox-wrapper {
     display: flex;
     padding: 5px 0px;
@@ -9,7 +11,7 @@
       width: 14px;
       height: 14px;
       display: inline-block;
-      border: 1px solid #007dcc;
+      border: 1px solid $primary-color;
     }
 
     .filter-name{
@@ -21,10 +23,10 @@
     }
 
     .selected{
-      background-color: #007dcc;
+      background-color: $primary-color;
     }
 
     .unselected{
-      border: 1px solid #007dcc;
+      border: 1px solid $primary-color;
     }
   }

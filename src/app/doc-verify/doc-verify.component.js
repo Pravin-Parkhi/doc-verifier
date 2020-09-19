@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import docPreview from '../../assets/doc-preview.jpg'
 import Modal from '../../common/modal/modal.component'
@@ -8,9 +8,11 @@ import './doc-verify.component.scss'
 import InputField from '../../common/input-field/input-field.component'
 import Button from '../../common/button/button.component'
 import Checkbox from '../../common/checkbox/checkbox.component'
+import Notification from '../../common/notification/notification.component'
 
 export default function DocVerify(props) {
   const [showDocVerifyModal, setDocVerifyModal] = useState(true)
+  const [showNotification, setNotification ] = useState(false)
 
   const [aadhaarNumber, setAadhaarNumber] = useState('')
   const [otp, setOtp] = useState('')
@@ -22,6 +24,11 @@ export default function DocVerify(props) {
 
   const handleOtpChange = (event) => {
     setOtp(event.target.value)
+  }
+
+  const handleSubmitClick= () => {
+    setDocVerifyModal(false)
+    setNotification(true)
   }
 
   const renderRegisterAadhaarModalView = () => {
@@ -55,7 +62,8 @@ export default function DocVerify(props) {
               />
               <Button
                 buttonText='Submit'
-                isDisabled={otp.length !== 6}
+                isDisabled={!((otp.length === 6) && isAgree)}
+                onClickCallback={handleSubmitClick}
               />
             </div>
           </div>
@@ -64,6 +72,13 @@ export default function DocVerify(props) {
     )
   }
 
+  useEffect(()=> {
+    if(showNotification){
+      setTimeout(()=> {
+        setNotification(false)
+      }, 3000)
+    }
+  }, [showNotification])
 
   return (
     <div className='doc-verify-wrapper'>
@@ -72,9 +87,11 @@ export default function DocVerify(props) {
         alt='Document Preview'
         className='document-preview'
       />
-      <Modal show={showDocVerifyModal}>
+      {showDocVerifyModal && <Modal show={showDocVerifyModal}>
         {renderRegisterAadhaarModalView()}
-      </Modal>
+      </Modal>}
+
+      {showNotification && <Notification />}
     </div>
   );
 }
