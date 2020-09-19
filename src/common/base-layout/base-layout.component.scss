@@ -1,0 +1,13 @@
+.base-layout-container{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    .content-wrapper{
+        height: 100vh;
+        padding: 90px 30px 30px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+    }
+}

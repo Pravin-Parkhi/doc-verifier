@@ -1,0 +1,41 @@
+@import '../../styles/colors.scss';
+
+.auth-wrapper{
+  max-width: 300px;
+  margin: 0 auto;
+  .o-auth-wrapper{
+    width: 100%;
+    text-align: center;
+    .o-auth-helper-text{
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: $primary-text-color;
+    }
+    .google-sign-in-button{
+      width: 200px;
+      border: 0px;
+      outline: 0px;
+      padding: 10px;
+      color: $white-color;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 30px;
+      background-color: $google-button-color;
+    }
+  }
+
+  .manual-auth-wrapper{
+    .helper-text{
+      margin: 8px 0px;
+      font-size: 12px;
+    }
+
+    .info-text{
+      font-size: 12px;
+      text-align: center;
+      color: $light-text-color;
+    }
+  }
+}

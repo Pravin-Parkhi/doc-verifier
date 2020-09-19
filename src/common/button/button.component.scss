@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+
+.button {
+	width: 100%;
+	margin: 10px auto;
+	padding: 10px 20px;
+	color: $white-color;
+	outline: none;
+	border: 0px;
+	text-transform: uppercase;
+	background-color: $primary-color;
+
+	&.disabled{
+		opacity: 0.5;
+		pointer-events: none;
+	}
+}
